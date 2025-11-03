@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="POCOTodoCross.Task">
+    <Position X="5.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQAAAAAAAIAAAAAAAEAAAAAAAAIAAAAAAIgA=</HashCode>
+      <FileName>Task.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="POCOTodoCross.TaskStorage">
+    <Position X="7.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAARCAAAAAAAAAAAAAAAABAAAAAAAgAAAAAAAAAAAA=</HashCode>
+      <FileName>TaskStorage.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="POCOTodoCross.TaskService">
+    <Position X="5.75" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>TaskService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="POCOTodoCross.RecurringTask">
+    <Position X="10" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAABAAAA=</HashCode>
+      <FileName>RecurringTask.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="POCOTodoCross.ITaskStorage">
+    <Position X="5.75" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAARCAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ITaskStorage.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
