@@ -1,11 +1,12 @@
-C:\Users\lathb\POCOTodo\POCOTodoCross\POCOTodoLib\obj\Debug\net8.0-windows\Views\MainWindow.g.cs
-C:\Users\lathb\POCOTodo\POCOTodoCross\POCOTodoLib\obj\Debug\net8.0-windows\POCOTodoCross_MarkupCompile.cache
-C:\Users\lathb\POCOTodo\POCOTodoCross\POCOTodoLib\obj\Debug\net8.0-windows\POCOTodoCross_MarkupCompile.lref
 C:\Users\lathb\POCOTodo\POCOTodoCross\POCOTodoLib\bin\Debug\net8.0-windows\POCOTodoCross.exe
 C:\Users\lathb\POCOTodo\POCOTodoCross\POCOTodoLib\bin\Debug\net8.0-windows\POCOTodoCross.deps.json
 C:\Users\lathb\POCOTodo\POCOTodoCross\POCOTodoLib\bin\Debug\net8.0-windows\POCOTodoCross.runtimeconfig.json
 C:\Users\lathb\POCOTodo\POCOTodoCross\POCOTodoLib\bin\Debug\net8.0-windows\POCOTodoCross.dll
 C:\Users\lathb\POCOTodo\POCOTodoCross\POCOTodoLib\bin\Debug\net8.0-windows\POCOTodoCross.pdb
+C:\Users\lathb\POCOTodo\POCOTodoCross\POCOTodoLib\obj\Debug\net8.0-windows\Views\MainWindow.g.cs
+C:\Users\lathb\POCOTodo\POCOTodoCross\POCOTodoLib\obj\Debug\net8.0-windows\GeneratedInternalTypeHelper.g.cs
+C:\Users\lathb\POCOTodo\POCOTodoCross\POCOTodoLib\obj\Debug\net8.0-windows\POCOTodoCross_MarkupCompile.cache
+C:\Users\lathb\POCOTodo\POCOTodoCross\POCOTodoLib\obj\Debug\net8.0-windows\POCOTodoCross_MarkupCompile.lref
 C:\Users\lathb\POCOTodo\POCOTodoCross\POCOTodoLib\obj\Debug\net8.0-windows\Views\MainWindow.baml
 C:\Users\lathb\POCOTodo\POCOTodoCross\POCOTodoLib\obj\Debug\net8.0-windows\POCOTodoCross.g.resources
 C:\Users\lathb\POCOTodo\POCOTodoCross\POCOTodoLib\obj\Debug\net8.0-windows\POCOTodoCross.GeneratedMSBuildEditorConfig.editorconfig
@@ -18,4 +19,3 @@ C:\Users\lathb\POCOTodo\POCOTodoCross\POCOTodoLib\obj\Debug\net8.0-windows\refin
 C:\Users\lathb\POCOTodo\POCOTodoCross\POCOTodoLib\obj\Debug\net8.0-windows\POCOTodoCross.pdb
 C:\Users\lathb\POCOTodo\POCOTodoCross\POCOTodoLib\obj\Debug\net8.0-windows\POCOTodoCross.genruntimeconfig.cache
 C:\Users\lathb\POCOTodo\POCOTodoCross\POCOTodoLib\obj\Debug\net8.0-windows\ref\POCOTodoCross.dll
-C:\Users\lathb\POCOTodo\POCOTodoCross\POCOTodoLib\obj\Debug\net8.0-windows\GeneratedInternalTypeHelper.g.cs
