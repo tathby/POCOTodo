@@ -7,9 +7,15 @@
         xmlns:models="clr-namespace:POCOTodoCross.Models"
         xmlns:local="clr-namespace:POCOTodoCross.Converters"
         xmlns:placeholder="clr-namespace:POCOTodoCross.Behaviors"
+        xmlns:sys="clr-namespace:System;assembly=System.Runtime"
         mc:Ignorable="d"
         Title="POCO Todo" Height="600" Width="1000"
         WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <local:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+        <local:NullToVisibilityConverter x:Key="NullToVisibilityConverter"/>
+        <local:BooleanToStrikethroughConverter x:Key="BooleanToStrikethroughConverter"/>
+    </Window.Resources>
     <Grid Margin="10">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -98,10 +104,4 @@
                            Converter={StaticResource BooleanToVisibilityConverter}}"/>
         </StackPanel>
     </Grid>
-
-    <Window.Resources>
-        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
-        <local:NullToVisibilityConverter x:Key="NullToVisibilityConverter"/>
-        <local:BooleanToStrikethroughConverter x:Key="BooleanToStrikethroughConverter"/>
-    </Window.Resources>
 </Window>

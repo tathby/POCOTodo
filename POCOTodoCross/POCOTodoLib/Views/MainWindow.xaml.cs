@@ -1,6 +1,7 @@
 ﻿using System.Windows;
 using POCOTodoCross.ViewModels;
 using POCOTodoCross.Models;
+using System;
 
 namespace POCOTodoCross.Views
 {
@@ -8,7 +9,9 @@ namespace POCOTodoCross.Views
     {
         public MainWindow()
         {
+            Console.WriteLine("MainWindow constructor: before InitializeComponent");
             InitializeComponent();
+            Console.WriteLine("MainWindow constructor: after InitializeComponent");
             var taskStorage = new TaskStorage();
             var taskService = new TaskService(taskStorage);
             DataContext = new MainWindowViewModel(taskService);
