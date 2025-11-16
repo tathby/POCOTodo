@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("POCOTodoCross")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3075d80a612f20fca055c9be7f023a1ff20ea4c6")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d9abe2cf83c3ac3f7a3d21cf7e25318b33cd3b8a")]
 [assembly: System.Reflection.AssemblyProductAttribute("POCOTodoCross")]
 [assembly: System.Reflection.AssemblyTitleAttribute("POCOTodoCross")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
