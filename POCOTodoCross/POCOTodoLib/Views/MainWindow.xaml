@@ -15,6 +15,7 @@
         <local:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
         <local:NullToVisibilityConverter x:Key="NullToVisibilityConverter"/>
         <local:BooleanToStrikethroughConverter x:Key="BooleanToStrikethroughConverter"/>
+        <local:InvertedBooleanToVisibilityConverter x:Key="InvertedBooleanToVisibilityConverter"/>
     </Window.Resources>
     <Grid Margin="10">
         <Grid.RowDefinitions>
@@ -33,15 +34,28 @@
                      SelectedItem="{Binding SelectedTask}">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
-                        <StackPanel>
-                            <TextBlock Text="{Binding title}" 
-                                       TextDecorations="{Binding isCompleted, 
-                                           Converter={StaticResource BooleanToStrikethroughConverter}}"/>
-                            <TextBlock Text="{Binding dueDate, StringFormat=Due: {0:d}}" 
-                                       FontSize="11" 
-                                       Opacity="0.7"
-                                       Visibility="{Binding dueDate, 
-                                           Converter={StaticResource NullToVisibilityConverter}}"/>
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,6">
+                            <StackPanel Width="300">
+                                <TextBlock Text="{Binding title}" 
+                                           TextDecorations="{Binding isCompleted, 
+                                               Converter={StaticResource BooleanToStrikethroughConverter}}"/>
+                                <TextBlock Text="{Binding dueDate, StringFormat=Due: {0:d}}" 
+                                           FontSize="11" 
+                                           Opacity="0.7"
+                                           Visibility="{Binding dueDate, 
+                                               Converter={StaticResource NullToVisibilityConverter}}"/>
+                            </StackPanel>
+                            <TextBlock Text="Overdue"
+                                       Foreground="Red"
+                                       FontWeight="Bold"
+                                       VerticalAlignment="Center"
+                                       Visibility="{Binding isOverdue, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+                            <TextBlock Text="✓"
+                                       Foreground="Green"
+                                       FontWeight="Bold"
+                                       Margin="8,0,0,0"
+                                       VerticalAlignment="Center"
+                                       Visibility="{Binding isCompleted, Converter={StaticResource BooleanToVisibilityConverter}}"/>
                         </StackPanel>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
@@ -50,7 +64,12 @@
 
         <!-- New Task Form -->
         <StackPanel Grid.Row="0" Grid.Column="1" Margin="0,0,0,20">
-            <TextBlock Text="New Task" FontSize="20" FontWeight="Bold" Margin="0,0,0,10"/>
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                <TextBlock Text="New Task" FontSize="20" FontWeight="Bold" VerticalAlignment="Center"/>
+                <TextBlock Text="Current: " VerticalAlignment="Center" Opacity="0.7" Margin="20,0,5,0" FontSize="12"/>
+                <TextBlock Text="{Binding CurrentDate, StringFormat={}{0:yyyy-MM-dd}}" VerticalAlignment="Center" FontWeight="SemiBold" Margin="0,0,10,0" FontSize="12"/>
+                <Button Command="{Binding AdvanceDayCommand}" Content="+1 Day" Padding="6,2" FontSize="11"/>
+            </StackPanel>
             <TextBox Text="{Binding NewTaskTitle, UpdateSourceTrigger=PropertyChanged}"
                      Margin="0,0,0,10"
                      placeholder:PlaceholderBehavior.Placeholder="Task Title"/>
@@ -69,6 +88,11 @@
                      Margin="0,0,0,10"
                      placeholder:PlaceholderBehavior.Placeholder="Recurrence Pattern (e.g., Daily, Weekly)"
                      Visibility="{Binding IsRecurring, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+            <TextBlock Text="Enter recurrence examples: 'Daily', 'Weekly', 'Every 3 days'. Use simple English phrases."
+                       FontSize="11"
+                       Opacity="0.8"
+                       Margin="0,0,0,10"
+                       Visibility="{Binding IsRecurring, Converter={StaticResource BooleanToVisibilityConverter}}"/>
             <Button Command="{Binding AddTaskCommand}"
                     Content="Add Task"
                     Padding="10,5"/>
@@ -86,22 +110,59 @@
                         Padding="10,5"/>
                 <Button Command="{Binding DeleteTaskCommand}"
                         Content="Delete Task"
+                        Margin="0,0,10,0"
+                        Padding="10,5"/>
+                <Button Command="{Binding EditTaskCommand}"
+                        Content="Edit Task"
                         Padding="10,5"/>
             </StackPanel>
-            <TextBlock Text="{Binding SelectedTask.title}" 
-                       FontSize="16" 
-                       FontWeight="SemiBold"
-                       Margin="0,0,0,5"/>
-            <TextBlock Text="{Binding SelectedTask.description}" 
-                       TextWrapping="Wrap"
-                       Margin="0,0,0,5"/>
-            <TextBlock Text="{Binding SelectedTask.dueDate, StringFormat=Due Date: {0:d}}"
-                       Visibility="{Binding SelectedTask.dueDate, 
-                           Converter={StaticResource NullToVisibilityConverter}}"/>
-            <TextBlock Text="✓ Completed"
-                       Foreground="Green"
-                       Visibility="{Binding SelectedTask.isCompleted, 
-                           Converter={StaticResource BooleanToVisibilityConverter}}"/>
+
+            <!-- Display Mode -->
+            <StackPanel Visibility="{Binding IsEditingTask, Converter={StaticResource InvertedBooleanToVisibilityConverter}}">
+                <TextBlock Text="{Binding SelectedTask.title}" 
+                           FontSize="16" 
+                           FontWeight="SemiBold"
+                           Margin="0,0,0,5"/>
+                <TextBlock Text="{Binding SelectedTask.description}" 
+                           TextWrapping="Wrap"
+                           Margin="0,0,0,5"/>
+                <TextBlock Text="{Binding SelectedTask.dueDate, StringFormat=Due Date: {0:d}}"
+                           Visibility="{Binding SelectedTask.dueDate, 
+                               Converter={StaticResource NullToVisibilityConverter}}"/>
+                <TextBlock Text="✓ Completed"
+                           Foreground="Green"
+                           Visibility="{Binding SelectedTask.isCompleted, 
+                               Converter={StaticResource BooleanToVisibilityConverter}}"/>
+            </StackPanel>
+
+            <!-- Edit Mode -->
+            <StackPanel Visibility="{Binding IsEditingTask, Converter={StaticResource BooleanToVisibilityConverter}}">
+                <TextBlock Text="Edit Title:" Margin="0,0,0,5" FontWeight="SemiBold"/>
+                <TextBox Text="{Binding EditTaskTitle}"
+                         Margin="0,0,0,10"
+                         Padding="5"
+                         placeholder:PlaceholderBehavior.Placeholder="Task Title"/>
+                <TextBlock Text="Edit Description:" Margin="0,0,0,5" FontWeight="SemiBold"/>
+                <TextBox Text="{Binding EditTaskDescription}"
+                         Height="60"
+                         TextWrapping="Wrap"
+                         AcceptsReturn="True"
+                         Margin="0,0,0,10"
+                         Padding="5"
+                         placeholder:PlaceholderBehavior.Placeholder="Task Description"/>
+                <TextBlock Text="Edit Due Date:" Margin="0,0,0,5" FontWeight="SemiBold"/>
+                <DatePicker SelectedDate="{Binding EditTaskDueDate}"
+                            Margin="0,0,0,10"/>
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                    <Button Command="{Binding SaveEditCommand}"
+                            Content="Save"
+                            Margin="0,0,10,0"
+                            Padding="10,5"/>
+                    <Button Command="{Binding CancelEditCommand}"
+                            Content="Cancel"
+                            Padding="10,5"/>
+                </StackPanel>
+            </StackPanel>
         </StackPanel>
     </Grid>
 </Window>

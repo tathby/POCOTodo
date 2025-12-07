@@ -43,4 +43,18 @@ namespace POCOTodoCross.Converters
             throw new NotImplementedException();
         }
     }
+
+    public class InvertedBooleanToVisibilityConverter : IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            bool? boolValue = (bool?)value;
+            return boolValue == false || boolValue == null ? Visibility.Visible : Visibility.Collapsed;
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            return (Visibility)value == Visibility.Visible ? false : true;
+        }
+    }
 }

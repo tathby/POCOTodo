@@ -46,6 +46,11 @@ namespace POCOTodoCross.Models
             }
         }
 
+        public void UpdateTask(ITask task)
+        {
+            _storage.UpdateTask(task);
+        }
+
         public IEnumerable<ITask> GetTasks()
         {
             return _storage.GetAllTasks();

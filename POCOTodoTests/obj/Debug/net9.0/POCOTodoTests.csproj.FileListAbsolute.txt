@@ -1,0 +1,6 @@
+C:\Users\lathb\POCOTodo-1\POCOTodoTests\obj\Debug\net9.0\POCOTodoTests.csproj.AssemblyReference.cache
+C:\Users\lathb\POCOTodo-1\POCOTodoTests\obj\Debug\net9.0\POCOTodoTests.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\lathb\POCOTodo-1\POCOTodoTests\obj\Debug\net9.0\POCOTodoTests.AssemblyInfoInputs.cache
+C:\Users\lathb\POCOTodo-1\POCOTodoTests\obj\Debug\net9.0\POCOTodoTests.AssemblyInfo.cs
+C:\Users\lathb\POCOTodo-1\POCOTodoTests\obj\Debug\net9.0\POCOTodoTests.csproj.CoreCompileInputs.cache
+C:\Users\lathb\POCOTodo-1\POCOTodoTests\obj\Debug\net9.0\POCOTodoTests.sourcelink.json

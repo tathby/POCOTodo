@@ -10,11 +10,11 @@ namespace POCOTodoCross.Views
         public MainWindow()
         {
             Console.WriteLine("MainWindow constructor: before InitializeComponent");
-            InitializeComponent();
+            InitializeComponent(); // Ignorable error, necessary to keep
             Console.WriteLine("MainWindow constructor: after InitializeComponent");
             var taskStorage = new TaskStorage();
             var taskService = new TaskService(taskStorage);
             DataContext = new MainWindowViewModel(taskService);
-        }
+        }+
     }
 }
