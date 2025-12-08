@@ -15,6 +15,6 @@ namespace POCOTodoCross.Views
             var taskStorage = new TaskStorage();
             var taskService = new TaskService(taskStorage);
             DataContext = new MainWindowViewModel(taskService);
-        }+
+        }
     }
 }
